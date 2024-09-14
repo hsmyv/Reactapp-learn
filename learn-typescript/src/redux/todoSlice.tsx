@@ -6,7 +6,7 @@ const initialState :TodoInitialState = {
     todos: []
 }
 export const todoSlice = createSlice({
-    name: 'tood',
+    name: 'todo',
     initialState,
     reducers:{
         createTodo : (state:TodoInitialState, action: PayloadAction<TodoType>) => {
@@ -14,10 +14,13 @@ export const todoSlice = createSlice({
         },
         removeTodoById: (state: TodoInitialState, action: PayloadAction<number>) => {
             state.todos = [...state.todos.filter((todo: TodoType) => todo.id  !== action.payload)]
+        },
+        updateTodo: (state: TodoInitialState, action: PayloadAction<TodoType>) =>{
+            state.todos = [...state.todos.map((todo: TodoType) => todo.id !== action.payload.id ? todo : action.payload)]
         }
     }
 })
 
-export const {createTodo, removeTodoById} = todoSlice.actions
+export const {createTodo, removeTodoById, updateTodo} = todoSlice.actions
 
 export default todoSlice.reducer

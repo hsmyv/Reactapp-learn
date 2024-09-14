@@ -26,6 +26,12 @@ body{
   border-bottom: 1px solid lightgrey;
   outline: none;
 }
+.todo-input-edit {
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  outline: none;
+}
 
 .todo-create-button{
   border: none;

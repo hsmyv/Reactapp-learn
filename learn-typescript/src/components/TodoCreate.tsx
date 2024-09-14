@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createTodo } from '../redux/todoSlice';
 import { TodoType } from '../types/Types';
+import { increment } from '../redux/counterSlice';
 
 const TodoCreate = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,11 @@ const TodoCreate = () => {
 
       const payload :TodoType = {
         id: Math.floor(Math.random() * 999999),
-        content: newTodo
+        content: newTodo,
       }
 
       dispatch(createTodo(payload))
+      dispatch(increment());         
       setNewTodo('');
   }
   return (
